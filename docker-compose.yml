@@ -1,0 +1,18 @@
+services:
+  frontend:
+    build: .
+    container_name: thekedaarpk-frontend
+    env_file: .env.local
+    environment:
+      NODE_ENV: development
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./app:/app/app
+      - ./components:/app/components
+      - ./messages:/app/messages
+      - ./lib:/app/lib
+      - ./hooks:/app/hooks
+      - ./stores:/app/stores
+      - ./types:/app/types
+      - ./public:/app/public
