@@ -2,11 +2,13 @@
 
 import { useState, use, useEffect } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
-import { SlidersHorizontal } from 'lucide-react'
-import { ProfileCard } from '@/components/thekedaar/ProfileCard'
+import { SlidersHorizontal, SearchX } from 'lucide-react'
+import { ProfileCard } from '@/components/contractor/ProfileCard'
 import { Button } from '@/components/ui/Button'
-import { getThekedaars, getCategories, getCities } from '@/lib/api'
-import type { User, ServiceCategory, City } from '@/types'
+import { CardSkeleton } from '@/components/ui/Skeleton'
+import { EmptyState } from '@/components/ui/EmptyState'
+import { getContractors, getCategories, getCities } from '@/lib/api'
+import type { ContractorProfile, ServiceCategory, City } from '@/types'
 import { cn } from '@/lib/utils'
 
 export default function BrowsePage({
@@ -22,7 +24,7 @@ export default function BrowsePage({
   const router = useRouter()
   const [currentSearchParams] = [sp]
 
-  const [thekedaars, setThekedaars] = useState<User[]>([])
+  const [contractors, setContractors] = useState<ContractorProfile[]>([])
   const [total, setTotal] = useState(0)
   const [categories, setCategories] = useState<ServiceCategory[]>([])
   const [cities, setCities] = useState<City[]>([])
@@ -44,24 +46,24 @@ export default function BrowsePage({
   }, [])
 
   useEffect(() => {
-    async function loadThekedaars() {
+    async function loadContractors() {
       setIsLoading(true)
       try {
-        const result = await getThekedaars({
+        const result = await getContractors({
           category: selectedCategory || undefined,
           city: selectedCity || undefined,
           page,
           limit: LIMIT,
         })
-        setThekedaars(result.data)
+        setContractors(result.data)
         setTotal(result.total)
       } catch {
-        setThekedaars([])
+        setContractors([])
       } finally {
         setIsLoading(false)
       }
     }
-    loadThekedaars()
+    loadContractors()
   }, [selectedCategory, selectedCity, page])
 
   const updateFilter = (type: 'category' | 'city', value: string) => {
@@ -79,7 +81,7 @@ export default function BrowsePage({
         <div className="flex items-center justify-between mb-6">
           <div>
             <h1 className="text-2xl font-bold text-gray-900">
-              {isUr ? 'ٹھیکیدار تلاش کریں' : 'Find a Thekedaar'}
+              {isUr ? 'ٹھیکیدار تلاش کریں' : 'Find a Contractor'}
             </h1>
             {!isLoading && (
               <p className="mt-1 text-sm text-gray-500">
@@ -181,23 +183,20 @@ export default function BrowsePage({
             {isLoading ? (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {Array.from({ length: 6 }).map((_, i) => (
-                  <div key={i} className="h-48 rounded-xl bg-gray-200 animate-pulse" />
+                  <CardSkeleton key={i} />
                 ))}
               </div>
-            ) : thekedaars.length === 0 ? (
-              <div className="flex flex-col items-center justify-center py-20 text-center">
-                <p className="text-lg font-medium text-gray-900">
-                  {isUr ? 'کوئی ٹھیکیدار نہیں ملا' : 'No thekedaars found'}
-                </p>
-                <p className="mt-2 text-sm text-gray-500">
-                  {isUr ? 'اپنے فلٹر تبدیل کریں' : 'Try adjusting your filters'}
-                </p>
-              </div>
+            ) : contractors.length === 0 ? (
+              <EmptyState
+                icon={SearchX}
+                title={isUr ? 'کوئی ٹھیکیدار نہیں ملا' : 'No contractors found'}
+                description={isUr ? 'اپنے فلٹر تبدیل کریں' : 'Try adjusting your filters'}
+              />
             ) : (
               <>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {thekedaars.map((t) => (
-                    <ProfileCard key={t.id} thekedaar={t} locale={locale} />
+                  {contractors.map((t) => (
+                    <ProfileCard key={t.id} contractor={t} locale={locale} />
                   ))}
                 </div>
 

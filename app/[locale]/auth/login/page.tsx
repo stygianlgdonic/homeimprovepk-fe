@@ -90,7 +90,7 @@ export default function LoginPage({
         <div className="text-center mb-8">
           <Link href={`/${locale}`} className="inline-flex items-center gap-2 text-green-600">
             <Hammer className="h-8 w-8" />
-            <span className="text-2xl font-bold">ThekedaarPK</span>
+            <span className="text-2xl font-bold">HomeImprovePK</span>
           </Link>
         </div>
 
@@ -100,7 +100,7 @@ export default function LoginPage({
               <div className="space-y-6">
                 <div className="text-center">
                   <h1 className="text-2xl font-bold text-gray-900">
-                    {isUr ? 'لاگ ان کریں' : 'Login to ThekedaarPK'}
+                    {isUr ? 'لاگ ان کریں' : 'Login to HomeImprovePK'}
                   </h1>
                   <p className="mt-2 text-sm text-gray-500">
                     {isUr ? 'شروع کرنے کے لیے اپنا فون نمبر درج کریں' : 'Enter your phone number to get started'}

@@ -6,10 +6,10 @@ import toast from 'react-hot-toast'
 import { Button } from '@/components/ui/Button'
 import { Badge, statusVariant } from '@/components/ui/Badge'
 import { Card, CardContent } from '@/components/ui/Card'
-import { getAdminThekedaars, verifyThekedaar } from '@/lib/api'
+import { getAdminContractors, verifyContractor } from '@/lib/api'
 import type { User } from '@/types'
 
-export default function AdminThekedaarsPage({
+export default function AdminContractorsPage({
   params,
 }: {
   params: Promise<{ locale: string }>
@@ -17,17 +17,17 @@ export default function AdminThekedaarsPage({
   const { locale } = use(params)
   const isUr = locale === 'ur'
 
-  const [thekedaars, setThekedaars] = useState<User[]>([])
+  const [contractors, setContractors] = useState<User[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [processingId, setProcessingId] = useState<string | null>(null)
 
   useEffect(() => {
     async function load() {
       try {
-        const data = await getAdminThekedaars('PENDING')
-        setThekedaars(data)
+        const data = await getAdminContractors('PENDING')
+        setContractors(data)
       } catch {
-        toast.error('Failed to load thekedaars')
+        toast.error('Failed to load contractors')
       } finally {
         setIsLoading(false)
       }
@@ -38,12 +38,12 @@ export default function AdminThekedaarsPage({
   const handleVerify = async (id: string, status: 'APPROVED' | 'REJECTED') => {
     setProcessingId(id)
     try {
-      await verifyThekedaar(id, status)
-      setThekedaars((prev) => prev.filter((t) => t.id !== id))
+      await verifyContractor(id, status)
+      setContractors((prev) => prev.filter((t) => t.id !== id))
       toast.success(
         status === 'APPROVED'
-          ? (isUr ? 'ٹھیکیدار منظور' : 'Thekedaar approved!')
-          : (isUr ? 'ٹھیکیدار مسترد' : 'Thekedaar rejected')
+          ? (isUr ? 'ٹھیکیدار منظور' : 'Contractor approved!')
+          : (isUr ? 'ٹھیکیدار مسترد' : 'Contractor rejected')
       )
     } catch (err: unknown) {
       toast.error(err instanceof Error ? err.message : 'Failed to process')
@@ -65,7 +65,7 @@ export default function AdminThekedaarsPage({
               <div key={i} className="h-24 rounded-xl bg-gray-200 animate-pulse" />
             ))}
           </div>
-        ) : thekedaars.length === 0 ? (
+        ) : contractors.length === 0 ? (
           <Card>
             <CardContent className="py-8 text-center">
               <CheckCircle className="h-12 w-12 text-green-400 mx-auto mb-3" />
@@ -76,8 +76,8 @@ export default function AdminThekedaarsPage({
           </Card>
         ) : (
           <div className="space-y-3">
-            {thekedaars.map((t) => {
-              const profile = t.thekedaarProfile
+            {contractors.map((t) => {
+              const profile = t.contractorProfile
               return (
                 <Card key={t.id}>
                   <CardContent className="pt-4 pb-4">

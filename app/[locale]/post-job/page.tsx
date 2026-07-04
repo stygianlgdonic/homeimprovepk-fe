@@ -265,7 +265,7 @@ export default function PostJobPage({
                   {isUr ? 'تصاویر (زیادہ سے زیادہ 5)' : 'Photos (up to 5)'}
                 </label>
                 <p className="text-xs text-gray-500 mb-3">
-                  {isUr ? 'ٹھیکیداروں کو کام سمجھانے کے لیے تصاویر شامل کریں' : 'Add photos to help thekedaars understand the job'}
+                  {isUr ? 'ٹھیکیداروں کو کام سمجھانے کے لیے تصاویر شامل کریں' : 'Add photos to help contractors understand the job'}
                 </p>
 
                 {photos.length > 0 && (

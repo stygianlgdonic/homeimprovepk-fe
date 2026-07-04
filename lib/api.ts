@@ -1,6 +1,6 @@
 import type {
   User,
-  ThekedaarProfile,
+  ContractorProfile,
   ServiceCategory,
   City,
   JobPost,
@@ -99,7 +99,7 @@ export async function updateMe(
 
 export async function completeOnboarding(data: {
   name: string
-  role: 'HOMEOWNER' | 'THEKEDAAR'
+  role: 'HOMEOWNER' | 'CONTRACTOR'
 }): Promise<User> {
   return fetchApi('/users/me/complete-onboarding', {
     method: 'POST',
@@ -116,26 +116,26 @@ export async function getCities(): Promise<City[]> {
   return fetchApi('/catalog/cities')
 }
 
-// Thekedaars
-export async function getThekedaars(params?: {
+// Contractors
+export async function getContractors(params?: {
   category?: string
   city?: string
   page?: number
   limit?: number
-}): Promise<PaginatedResponse<User>> {
+}): Promise<PaginatedResponse<ContractorProfile>> {
   const qs = new URLSearchParams()
   if (params?.category) qs.set('category', params.category)
   if (params?.city) qs.set('city', params.city)
   if (params?.page) qs.set('page', String(params.page))
   if (params?.limit) qs.set('limit', String(params.limit))
-  return fetchApi(`/thekedaars?${qs}`)
+  return fetchApi(`/contractors?${qs}`)
 }
 
-export async function getThekedaar(id: string): Promise<User> {
-  return fetchApi(`/thekedaars/${id}`)
+export async function getContractor(id: string): Promise<ContractorProfile> {
+  return fetchApi(`/contractors/${id}`)
 }
 
-export async function updateMyThekedaarProfile(
+export async function updateMyContractorProfile(
   data: Partial<{
     bio: string
     cnicNumber: string
@@ -144,8 +144,8 @@ export async function updateMyThekedaarProfile(
     pricingRangeMin: number
     pricingRangeMax: number
   }>
-): Promise<ThekedaarProfile> {
-  return fetchApi('/thekedaars/me/profile', {
+): Promise<ContractorProfile> {
+  return fetchApi('/contractors/me/profile', {
     method: 'PATCH',
     body: JSON.stringify(data),
   })
@@ -246,8 +246,8 @@ export async function createReview(data: {
   })
 }
 
-export async function getThekedaarReviews(thekedaarId: string): Promise<Review[]> {
-  return fetchApi(`/thekedaars/${thekedaarId}/reviews`)
+export async function getContractorReviews(contractorId: string): Promise<Review[]> {
+  return fetchApi(`/contractors/${contractorId}/reviews`)
 }
 
 // Chat
@@ -312,16 +312,16 @@ export async function getAdminStats(): Promise<AdminStats> {
   return fetchApi('/admin/stats')
 }
 
-export async function getAdminThekedaars(status?: string): Promise<User[]> {
+export async function getAdminContractors(status?: string): Promise<User[]> {
   const qs = status ? `?status=${status}` : ''
-  return fetchApi(`/admin/thekedaars${qs}`)
+  return fetchApi(`/admin/contractors${qs}`)
 }
 
-export async function verifyThekedaar(
+export async function verifyContractor(
   id: string,
   status: 'APPROVED' | 'REJECTED'
-): Promise<ThekedaarProfile> {
-  return fetchApi(`/admin/thekedaars/${id}/verify`, {
+): Promise<ContractorProfile> {
+  return fetchApi(`/admin/contractors/${id}/verify`, {
     method: 'PATCH',
     body: JSON.stringify({ status }),
   })

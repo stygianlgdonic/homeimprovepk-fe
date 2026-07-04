@@ -19,7 +19,7 @@ export default async function AdminPage({
   } catch {
     stats = {
       totalUsers: 0,
-      totalThekedaars: 0,
+      totalContractors: 0,
       totalJobs: 0,
       completedJobs: 0,
       totalRevenue: 0,
@@ -34,7 +34,7 @@ export default async function AdminPage({
             {isUr ? 'ایڈمن ڈیش بورڈ' : 'Admin Dashboard'}
           </h1>
           <div className="flex gap-3">
-            <Link href={`/${locale}/admin/thekedaars`}>
+            <Link href={`/${locale}/admin/contractors`}>
               <Button variant="secondary" size="sm">
                 {isUr ? 'تصدیق کی قطار' : 'Verification Queue'}
               </Button>
@@ -54,8 +54,8 @@ export default async function AdminPage({
             icon={<Users className="h-6 w-6" />}
           />
           <StatsCard
-            label={isUr ? 'کل ٹھیکیدار' : 'Total Thekedaars'}
-            value={stats.totalThekedaars}
+            label={isUr ? 'کل ٹھیکیدار' : 'Total Contractors'}
+            value={stats.totalContractors}
             icon={<HardHat className="h-6 w-6" />}
           />
           <StatsCard

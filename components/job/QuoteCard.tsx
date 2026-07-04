@@ -15,7 +15,7 @@ interface QuoteCardProps {
 }
 
 export function QuoteCard({ quote, onAccept, isAccepting, canAccept }: QuoteCardProps) {
-  const thekedaarName = quote.thekedaar.name || 'Thekedaar'
+  const contractorName = quote.contractor.name || 'Contractor'
 
   return (
     <Card>
@@ -27,7 +27,7 @@ export function QuoteCard({ quote, onAccept, isAccepting, canAccept }: QuoteCard
                 <User className="h-4 w-4 text-green-600" />
               </div>
               <div>
-                <p className="font-medium text-gray-900 text-sm">{thekedaarName}</p>
+                <p className="font-medium text-gray-900 text-sm">{contractorName}</p>
               </div>
             </div>
           </div>

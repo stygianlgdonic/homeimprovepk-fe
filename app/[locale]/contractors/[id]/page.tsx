@@ -1,14 +1,14 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { MapPin, CheckCircle, Briefcase, Star } from 'lucide-react'
-import { getThekedaar, getThekedaarReviews } from '@/lib/api'
+import { getContractor, getContractorReviews } from '@/lib/api'
 import { Badge } from '@/components/ui/Badge'
 import { Button } from '@/components/ui/Button'
 import { Card, CardContent } from '@/components/ui/Card'
-import { RatingStars } from '@/components/thekedaar/RatingStars'
+import { RatingStars } from '@/components/contractor/RatingStars'
 import { formatPKR, timeAgo } from '@/lib/utils'
 
-export default async function ThekedaarProfilePage({
+export default async function ContractorProfilePage({
   params,
 }: {
   params: Promise<{ locale: string; id: string }>
@@ -16,25 +16,23 @@ export default async function ThekedaarProfilePage({
   const { locale, id } = await params
   const isUr = locale === 'ur'
 
-  let thekedaar
+  let contractor
   let reviews
   try {
-    [thekedaar, reviews] = await Promise.all([
-      getThekedaar(id),
-      getThekedaarReviews(id),
+    [contractor, reviews] = await Promise.all([
+      getContractor(id),
+      getContractorReviews(id),
     ])
   } catch {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <p className="text-gray-500">Thekedaar not found</p>
+        <p className="text-gray-500">Contractor not found</p>
       </div>
     )
   }
 
-  const profile = thekedaar.thekedaarProfile
-  if (!profile) return null
-
-  const name = thekedaar.name || 'Thekedaar'
+  const profile = contractor
+  const name = contractor.user?.name || 'Contractor'
   const isVerified = profile.verificationStatus === 'APPROVED'
 
   return (
@@ -48,9 +46,9 @@ export default async function ThekedaarProfilePage({
               {/* Avatar */}
               <div className="relative flex-shrink-0">
                 <div className="h-24 w-24 rounded-full bg-green-100 border-4 border-green-200 flex items-center justify-center overflow-hidden">
-                  {thekedaar.avatarUrl ? (
+                  {contractor.user?.avatarUrl ? (
                     <Image
-                      src={thekedaar.avatarUrl}
+                      src={contractor.user.avatarUrl}
                       alt={name}
                       width={96}
                       height={96}
@@ -118,7 +116,7 @@ export default async function ThekedaarProfilePage({
 
                 {/* CTA */}
                 <div className="mt-4">
-                  <Link href={`/${locale}/post-job?thekedaar=${id}`}>
+                  <Link href={`/${locale}/post-job?contractor=${id}`}>
                     <Button size="md">
                       {isUr ? 'کام پوسٹ کریں اور قیمت طلب کریں' : 'Post a Job & Request Quote'}
                     </Button>

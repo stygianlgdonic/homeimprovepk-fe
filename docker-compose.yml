@@ -1,7 +1,7 @@
 services:
   frontend:
     build: .
-    container_name: thekedaarpk-frontend
+    container_name: homeimprovepk-frontend
     env_file: .env.local
     environment:
       NODE_ENV: development

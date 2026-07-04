@@ -41,8 +41,8 @@ export function Navbar({ locale }: NavbarProps) {
   ]
 
   const dashboardHref =
-    user?.role === 'THEKEDAAR'
-      ? `/${locale}/thekedaar`
+    user?.role === 'CONTRACTOR'
+      ? `/${locale}/contractor`
       : user?.role === 'ADMIN'
       ? `/${locale}/admin`
       : `/${locale}/dashboard`
@@ -58,7 +58,7 @@ export function Navbar({ locale }: NavbarProps) {
           >
             <Hammer className="h-6 w-6" />
             <span className={cn('font-bold text-lg', isUr && 'font-urdu')}>
-              {isUr ? 'ٹھیکیدار پی کے' : 'ThekedaarPK'}
+              {isUr ? 'ہوم امپروو پی کے' : 'HomeImprovePK'}
             </span>
           </Link>
 

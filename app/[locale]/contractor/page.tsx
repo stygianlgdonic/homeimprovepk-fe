@@ -9,7 +9,7 @@ import { useAuthStore } from '@/stores/auth.store'
 import type { JobPost, ServiceCategory } from '@/types'
 import { cn } from '@/lib/utils'
 
-export default function ThekedaarJobFeedPage({
+export default function ContractorJobFeedPage({
   params,
 }: {
   params: Promise<{ locale: string }>
@@ -69,7 +69,7 @@ export default function ThekedaarJobFeedPage({
           <Button
             variant="secondary"
             size="sm"
-            onClick={() => router.push(`/${locale}/thekedaar/profile`)}
+            onClick={() => router.push(`/${locale}/contractor/profile`)}
           >
             {isUr ? 'میری پروفائل' : 'My Profile'}
           </Button>
@@ -118,7 +118,7 @@ export default function ThekedaarJobFeedPage({
                 key={job.id}
                 job={job}
                 locale={locale}
-                linkPrefix={`/${locale}/thekedaar/jobs`}
+                linkPrefix={`/${locale}/contractor/jobs`}
               />
             ))}
           </div>

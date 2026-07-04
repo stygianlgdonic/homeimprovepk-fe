@@ -4,7 +4,8 @@ import { Star } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 interface RatingStarsProps {
-  rating: number
+  // API serializes Prisma Decimal columns as strings, so accept both.
+  rating: number | string
   max?: number
   size?: 'sm' | 'md' | 'lg'
   interactive?: boolean
@@ -26,10 +27,11 @@ export function RatingStars({
   onChange,
   className,
 }: RatingStarsProps) {
+  const value = Number(rating) || 0
   return (
     <div className={cn('flex items-center gap-0.5', className)}>
       {Array.from({ length: max }).map((_, i) => {
-        const filled = i < Math.round(rating)
+        const filled = i < Math.round(value)
         return (
           <button
             key={i}
@@ -56,7 +58,7 @@ export function RatingStars({
       })}
       {!interactive && (
         <span className="ml-1 text-xs text-gray-500">
-          {rating.toFixed(1)}
+          {value.toFixed(1)}
         </span>
       )}
     </div>

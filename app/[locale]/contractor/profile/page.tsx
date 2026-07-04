@@ -9,12 +9,12 @@ import { Button } from '@/components/ui/Button'
 import { Card, CardContent } from '@/components/ui/Card'
 import { useAuthStore } from '@/stores/auth.store'
 import {
-  getCategories, getCities, updateMyThekedaarProfile, uploadFile, getMe
+  getCategories, getCities, updateMyContractorProfile, uploadFile, getMe
 } from '@/lib/api'
 import type { ServiceCategory, City } from '@/types'
 import { cn } from '@/lib/utils'
 
-export default function ThekedaarProfilePage({
+export default function ContractorProfilePage({
   params,
 }: {
   params: Promise<{ locale: string }>
@@ -49,7 +49,7 @@ export default function ThekedaarProfilePage({
       setCities(cityList)
 
       const me = await getMe()
-      const profile = me.thekedaarProfile
+      const profile = me.contractorProfile
       if (profile) {
         setBio(profile.bio || '')
         setCnic(profile.cnicNumber || '')
@@ -95,7 +95,7 @@ export default function ThekedaarProfilePage({
   const handleSave = async () => {
     setIsSaving(true)
     try {
-      await updateMyThekedaarProfile({
+      await updateMyContractorProfile({
         bio: bio || undefined,
         cnicNumber: cnic || undefined,
         serviceCategorySlugs: selectedCategories,

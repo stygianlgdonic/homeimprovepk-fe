@@ -6,7 +6,7 @@
     "dashboard": "میرا ڈیش بورڈ",
     "profile": "میری پروفائل",
     "logout": "لاگ آؤٹ",
-    "logo": "ٹھیکیدار پی کے"
+    "logo": "ہوم امپروو پی کے"
   },
   "landing": {
     "heroTitle": "پاکستان کا پہلا تصدیق شدہ گھریلو بہتری مارکیٹ پلیس",
@@ -21,9 +21,9 @@
     "step2Desc": "آپ کے شہر میں تصدیق شدہ ٹھیکیدار آپ کو مسابقتی قیمتیں بھیجیں گے",
     "step3Title": "ملازمت کریں اور کام مکمل کروائیں",
     "step3Desc": "بہترین قیمت چنیں، چیٹ کے ذریعے رابطہ کریں، اور اپنا منصوبہ ٹریک کریں",
-    "thekedaarCtaTitle": "کیا آپ ٹھیکیدار ہیں؟",
-    "thekedaarCtaDesc": "پاکستان کے سب سے قابل اعتماد پلیٹ فارم پر شامل ہوں اور تصدیق شدہ کلائنٹس کے ساتھ اپنا کاروبار بڑھائیں",
-    "thekedaarCtaButton": "ٹھیکیدار کے طور پر رجسٹر کریں",
+    "contractorCtaTitle": "کیا آپ ٹھیکیدار ہیں؟",
+    "contractorCtaDesc": "پاکستان کے سب سے قابل اعتماد پلیٹ فارم پر شامل ہوں اور تصدیق شدہ کلائنٹس کے ساتھ اپنا کاروبار بڑھائیں",
+    "contractorCtaButton": "ٹھیکیدار کے طور پر رجسٹر کریں",
     "categories": {
       "plumbing": "پلمبنگ",
       "electrical": "الیکٹریکل",
@@ -35,7 +35,7 @@
     }
   },
   "auth": {
-    "loginTitle": "ٹھیکیدار پی کے میں لاگ ان کریں",
+    "loginTitle": "ہوم امپروو پی کے میں لاگ ان کریں",
     "loginSubtitle": "شروع کرنے کے لیے اپنا فون نمبر درج کریں",
     "phoneLabel": "فون نمبر",
     "phonePlaceholder": "3XX XXXXXXX",
@@ -56,8 +56,8 @@
     "roleTitle": "میں ہوں...",
     "homeownerTitle": "گھر کا مالک",
     "homeownerDesc": "مجھے گھریلو بہتری کی خدمات چاہئیں",
-    "thekedaarTitle": "ٹھیکیدار",
-    "thekedaarDesc": "میں گھریلو بہتری کی خدمات فراہم کرتا ہوں",
+    "contractorTitle": "ٹھیکیدار",
+    "contractorDesc": "میں گھریلو بہتری کی خدمات فراہم کرتا ہوں",
     "submit": "شروع کریں",
     "submitting": "سیٹ اپ ہو رہا ہے..."
   },
@@ -76,7 +76,7 @@
     "results": "نتائج",
     "loadMore": "مزید لوڈ کریں"
   },
-  "thekedaarProfile": {
+  "contractorProfile": {
     "verified": "تصدیق شدہ",
     "pending": "تصدیق زیر التواء",
     "rejected": "تصدیق نہیں ہوئی",
@@ -139,7 +139,7 @@
     "reviewSubmitting": "جمع ہو رہا ہے...",
     "bookingStatus": "بکنگ کی حیثیت"
   },
-  "thekedaarDashboard": {
+  "contractorDashboard": {
     "title": "دستیاب کام",
     "myProfile": "میری پروفائل",
     "sendQuote": "قیمت بھیجیں",
@@ -173,7 +173,7 @@
   "admin": {
     "title": "ایڈمن ڈیش بورڈ",
     "totalUsers": "کل صارفین",
-    "totalThekedaars": "کل ٹھیکیدار",
+    "totalContractors": "کل ٹھیکیدار",
     "totalJobs": "کل کام",
     "completedJobs": "مکمل کام",
     "revenue": "کل آمدنی",
@@ -217,7 +217,7 @@
     }
   },
   "footer": {
-    "copyright": "© 2024 ٹھیکیدار پی کے۔ تمام حقوق محفوظ ہیں۔",
+    "copyright": "© 2024 ہوم امپروو پی کے۔ تمام حقوق محفوظ ہیں۔",
     "tagline": "پاکستان کا پہلا تصدیق شدہ گھریلو بہتری مارکیٹ پلیس"
   }
 }

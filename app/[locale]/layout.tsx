@@ -22,9 +22,9 @@ const notoNastaliqUrdu = Noto_Nastaliq_Urdu({
 })
 
 export const metadata: Metadata = {
-  title: "ThekedaarPK — Pakistan's Verified Home Improvement Marketplace",
+  title: "HomeImprovePK — Pakistan's Verified Home Improvement Marketplace",
   description:
-    "Connect with trusted, verified thekedaars for all your home improvement needs in Pakistan.",
+    "Connect with trusted, verified contractors for all your home improvement needs in Pakistan.",
 }
 
 export default async function LocaleLayout({

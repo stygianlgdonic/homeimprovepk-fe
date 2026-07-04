@@ -11,7 +11,7 @@ import { completeOnboarding } from '@/lib/api'
 import { useAuthStore } from '@/stores/auth.store'
 import { cn } from '@/lib/utils'
 
-type Role = 'HOMEOWNER' | 'THEKEDAAR'
+type Role = 'HOMEOWNER' | 'CONTRACTOR'
 
 export default function CompletePage({
   params,
@@ -50,9 +50,9 @@ export default function CompletePage({
     try {
       const user = await completeOnboarding({ name: name.trim(), role: role! })
       setUser(user)
-      toast.success(isUr ? 'خوش آمدید!' : 'Welcome to ThekedaarPK!')
-      if (role === 'THEKEDAAR') {
-        router.push(`/${locale}/thekedaar`)
+      toast.success(isUr ? 'خوش آمدید!' : 'Welcome to HomeImprovePK!')
+      if (role === 'CONTRACTOR') {
+        router.push(`/${locale}/contractor`)
       } else {
         router.push(`/${locale}/dashboard`)
       }
@@ -105,9 +105,9 @@ export default function CompletePage({
                     descUr: 'مجھے گھریلو بہتری کی خدمات چاہئیں',
                   },
                   {
-                    value: 'THEKEDAAR' as Role,
+                    value: 'CONTRACTOR' as Role,
                     Icon: HardHat,
-                    titleEn: 'Thekedaar',
+                    titleEn: 'Contractor',
                     titleUr: 'ٹھیکیدار',
                     descEn: 'I provide home improvement services',
                     descUr: 'میں گھریلو بہتری کی خدمات فراہم کرتا ہوں',

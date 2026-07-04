@@ -2,13 +2,13 @@ export interface User {
   id: string
   phone: string
   name?: string
-  role: 'HOMEOWNER' | 'THEKEDAAR' | 'ADMIN'
+  role: 'HOMEOWNER' | 'CONTRACTOR' | 'ADMIN'
   preferredLang: 'en' | 'ur'
   avatarUrl?: string
-  thekedaarProfile?: ThekedaarProfile
+  contractorProfile?: ContractorProfile
 }
 
-export interface ThekedaarProfile {
+export interface ContractorProfile {
   id: string
   userId: string
   bio?: string
@@ -22,6 +22,8 @@ export interface ThekedaarProfile {
   totalJobs: number
   serviceCategories: ServiceCategory[]
   cities: City[]
+  // The list/detail endpoints embed a trimmed user record on the profile.
+  user?: Pick<User, 'id' | 'name' | 'avatarUrl' | 'phone'>
 }
 
 export interface ServiceCategory {
@@ -63,7 +65,7 @@ export interface Quote {
   description: string
   estimatedDays: number
   status: 'PENDING' | 'ACCEPTED' | 'REJECTED'
-  thekedaar: User
+  contractor: User
 }
 
 export interface Booking {
@@ -73,7 +75,7 @@ export interface Booking {
   scheduledAt?: string
   completedAt?: string
   homeowner: User
-  thekedaar: User
+  contractor: User
   payment?: Payment
 }
 
@@ -97,7 +99,7 @@ export interface ChatRoom {
   id: string
   jobPostId: string
   homeowner: User
-  thekedaar: User
+  contractor: User
 }
 
 export interface Message {
@@ -126,7 +128,7 @@ export interface PaginatedResponse<T> {
 
 export interface AdminStats {
   totalUsers: number
-  totalThekedaars: number
+  totalContractors: number
   totalJobs: number
   completedJobs: number
   totalRevenue: number

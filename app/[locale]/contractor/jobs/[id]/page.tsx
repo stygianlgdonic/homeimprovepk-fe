@@ -14,7 +14,7 @@ import { useAuthStore } from '@/stores/auth.store'
 import { timeAgo, formatPKR } from '@/lib/utils'
 import type { JobPost, Quote } from '@/types'
 
-export default function ThekedaarJobDetailPage({
+export default function ContractorJobDetailPage({
   params,
 }: {
   params: Promise<{ locale: string; id: string }>
@@ -44,7 +44,7 @@ export default function ThekedaarJobDetailPage({
       try {
         const [jobData, quotes] = await Promise.all([getJob(id), getJobQuotes(id)])
         setJob(jobData)
-        const mine = quotes.find((q) => q.thekedaar.id === user?.id)
+        const mine = quotes.find((q) => q.contractor.id === user?.id)
         setMyQuote(mine || null)
       } catch {
         toast.error('Failed to load job')
@@ -94,7 +94,7 @@ export default function ThekedaarJobDetailPage({
       <div className="mx-auto max-w-2xl px-4 py-8 sm:px-6 space-y-6">
         {/* Breadcrumb */}
         <div className="flex items-center gap-2 text-sm text-gray-500">
-          <Link href={`/${locale}/thekedaar`} className="hover:text-green-600">
+          <Link href={`/${locale}/contractor`} className="hover:text-green-600">
             {isUr ? 'دستیاب کام' : 'Available Jobs'}
           </Link>
           <span>/</span>

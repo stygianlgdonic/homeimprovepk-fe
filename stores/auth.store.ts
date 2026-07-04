@@ -43,7 +43,7 @@ export const useAuthStore = create<AuthState>()(
       },
     }),
     {
-      name: 'thekedaar-auth',
+      name: 'contractor-auth',
       partialize: (state) => ({ token: state.token }),
       onRehydrateStorage: () => (state) => {
         if (state?.token) {

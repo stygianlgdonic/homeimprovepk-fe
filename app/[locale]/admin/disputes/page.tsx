@@ -62,8 +62,8 @@ export default async function AdminDisputesPage({
                           {booking.homeowner.name || booking.homeowner.phone}
                         </p>
                         <p>
-                          <span className="font-medium">{isUr ? 'ٹھیکیدار:' : 'Thekedaar:'}</span>{' '}
-                          {booking.thekedaar.name || booking.thekedaar.phone}
+                          <span className="font-medium">{isUr ? 'ٹھیکیدار:' : 'Contractor:'}</span>{' '}
+                          {booking.contractor.name || booking.contractor.phone}
                         </p>
                         {booking.scheduledAt && (
                           <p className="text-xs text-gray-400">

@@ -40,7 +40,7 @@ const HOW_IT_WORKS = [
     step: '02',
     iconEn: 'Get Quotes',
     iconUr: 'قیمتیں حاصل کریں',
-    descEn: 'Verified thekedaars in your city will send you competitive quotes',
+    descEn: 'Verified contractors in your city will send you competitive quotes',
     descUr: 'آپ کے شہر میں تصدیق شدہ ٹھیکیدار آپ کو مسابقتی قیمتیں بھیجیں گے',
   },
   {
@@ -79,12 +79,12 @@ export default async function LandingPage({ params }: LandingPageProps) {
             <p className="mt-6 text-lg text-green-100 max-w-xl">
               {isUr
                 ? 'اپنی تمام گھریلو بہتری کی ضروریات کے لیے قابل اعتماد، تصدیق شدہ ٹھیکیداروں سے رابطہ کریں'
-                : 'Connect with trusted, verified thekedaars for all your home improvement needs'}
+                : 'Connect with trusted, verified contractors for all your home improvement needs'}
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Link href={`/${locale}/browse`}>
                 <Button size="lg" variant="secondary" className="bg-white text-green-700 hover:bg-green-50 border-0">
-                  {isUr ? 'ٹھیکیدار تلاش کریں' : 'Browse Thekedaars'}
+                  {isUr ? 'ٹھیکیدار تلاش کریں' : 'Browse Contractors'}
                   <ArrowRight className="h-4 w-4" />
                 </Button>
               </Link>
@@ -151,14 +151,14 @@ export default async function LandingPage({ params }: LandingPageProps) {
         </div>
       </section>
 
-      {/* Thekedaar CTA */}
+      {/* Contractor CTA */}
       <section className="py-16 bg-green-600 text-white">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
           <div className="flex justify-center mb-6">
             <Hammer className="h-12 w-12 opacity-90" />
           </div>
           <h2 className="text-3xl font-bold mb-4">
-            {isUr ? 'کیا آپ ٹھیکیدار ہیں؟' : 'Are You a Thekedaar?'}
+            {isUr ? 'کیا آپ ٹھیکیدار ہیں؟' : 'Are You a Contractor?'}
           </h2>
           <p className="text-lg text-green-100 mb-8 max-w-xl mx-auto">
             {isUr
@@ -171,7 +171,7 @@ export default async function LandingPage({ params }: LandingPageProps) {
               variant="secondary"
               className="bg-white text-green-700 hover:bg-green-50 border-0"
             >
-              {isUr ? 'ٹھیکیدار کے طور پر رجسٹر کریں' : 'Register as Thekedaar'}
+              {isUr ? 'ٹھیکیدار کے طور پر رجسٹر کریں' : 'Register as Contractor'}
               <ArrowRight className="h-4 w-4" />
             </Button>
           </Link>
@@ -183,7 +183,7 @@ export default async function LandingPage({ params }: LandingPageProps) {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
             {[
-              { icon: CheckCircle, label: isUr ? 'تصدیق شدہ ٹھیکیدار' : 'Verified Thekedaars', color: 'text-green-600' },
+              { icon: CheckCircle, label: isUr ? 'تصدیق شدہ ٹھیکیدار' : 'Verified Contractors', color: 'text-green-600' },
               { icon: MessageSquare, label: isUr ? 'براہ راست چیٹ' : 'Direct Chat', color: 'text-blue-600' },
               { icon: Star, label: isUr ? 'جائزہ شدہ خدمات' : 'Reviewed Services', color: 'text-yellow-500' },
             ].map(({ icon: Icon, label, color }) => (

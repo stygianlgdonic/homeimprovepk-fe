@@ -18,7 +18,7 @@ export function Footer({ locale }: FooterProps) {
           >
             <Hammer className="h-5 w-5" />
             <span className="font-bold">
-              {isUr ? 'ٹھیکیدار پی کے' : 'ThekedaarPK'}
+              {isUr ? 'ہوم امپروو پی کے' : 'HomeImprovePK'}
             </span>
           </Link>
 
@@ -30,8 +30,8 @@ export function Footer({ locale }: FooterProps) {
 
           <p className="text-xs text-gray-400">
             {isUr
-              ? '© 2024 ٹھیکیدار پی کے'
-              : '© 2024 ThekedaarPK'}
+              ? '© 2024 ہوم امپروو پی کے'
+              : '© 2024 HomeImprovePK'}
           </p>
         </div>
       </div>

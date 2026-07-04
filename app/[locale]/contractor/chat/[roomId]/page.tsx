@@ -8,7 +8,7 @@ import { ChatWindow } from '@/components/chat/ChatWindow'
 import { useAuthStore } from '@/stores/auth.store'
 import { Card } from '@/components/ui/Card'
 
-export default function ThekedaarChatPage({
+export default function ContractorChatPage({
   params,
 }: {
   params: Promise<{ locale: string; roomId: string }>
@@ -29,7 +29,7 @@ export default function ThekedaarChatPage({
       <div className="mx-auto max-w-3xl px-4 py-6 sm:px-6 h-[calc(100vh-4rem)] flex flex-col">
         <div className="flex items-center gap-3 mb-4">
           <Link
-            href={`/${locale}/thekedaar`}
+            href={`/${locale}/contractor`}
             className="rounded-lg p-2 hover:bg-gray-200 transition-colors"
           >
             <ArrowLeft className="h-5 w-5 text-gray-600" />

@@ -5,35 +5,38 @@ import Image from 'next/image'
 import { MapPin, Briefcase, CheckCircle } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/Card'
 import { Badge } from '@/components/ui/Badge'
-import { Button } from '@/components/ui/Button'
-import { RatingStars } from '@/components/thekedaar/RatingStars'
+import { RatingStars } from '@/components/contractor/RatingStars'
 import { formatPKR } from '@/lib/utils'
-import type { User } from '@/types'
+import type { ContractorProfile } from '@/types'
 
 interface ProfileCardProps {
-  thekedaar: User
+  contractor: ContractorProfile
   locale?: string
 }
 
-export function ProfileCard({ thekedaar, locale = 'en' }: ProfileCardProps) {
-  const profile = thekedaar.thekedaarProfile
-  if (!profile) return null
+export function ProfileCard({ contractor, locale = 'en' }: ProfileCardProps) {
+  const profile = contractor
+  const user = contractor.user
 
   const isVerified = profile.verificationStatus === 'APPROVED'
-  const name = thekedaar.name || 'Thekedaar'
+  const name = user?.name || 'Contractor'
   const categories = profile.serviceCategories.slice(0, 3)
   const cities = profile.cities.slice(0, 2)
 
   return (
-    <Card className="hover:shadow-md transition-shadow">
+    <Link
+      href={`/${locale}/contractors/${contractor.id}`}
+      className="block group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2 rounded-xl"
+    >
+      <Card className="group-hover:shadow-md group-hover:border-green-200 transition-all">
       <CardContent className="pt-6">
         <div className="flex items-start gap-4">
           {/* Avatar */}
           <div className="relative flex-shrink-0">
             <div className="h-16 w-16 rounded-full bg-green-100 flex items-center justify-center overflow-hidden border-2 border-green-200">
-              {thekedaar.avatarUrl ? (
+              {user?.avatarUrl ? (
                 <Image
-                  src={thekedaar.avatarUrl}
+                  src={user.avatarUrl}
                   alt={name}
                   width={64}
                   height={64}
@@ -54,7 +57,7 @@ export function ProfileCard({ thekedaar, locale = 'en' }: ProfileCardProps) {
           <div className="flex-1 min-w-0">
             <div className="flex items-start justify-between gap-2">
               <div>
-                <h3 className="font-semibold text-gray-900 truncate">{name}</h3>
+                <h3 className="font-semibold text-gray-900 truncate group-hover:text-green-600 transition-colors">{name}</h3>
                 <div className="flex items-center gap-1.5 mt-0.5">
                   <RatingStars rating={profile.avgRating} size="sm" />
                   <span className="text-xs text-gray-500">
@@ -105,13 +108,12 @@ export function ProfileCard({ thekedaar, locale = 'en' }: ProfileCardProps) {
         </div>
 
         <div className="mt-4">
-          <Link href={`/${locale}/thekedaars/${thekedaar.id}`}>
-            <Button variant="secondary" size="sm" className="w-full">
-              View Profile
-            </Button>
-          </Link>
+          <span className="inline-flex w-full items-center justify-center gap-2 rounded-md border border-green-600 bg-white px-3 py-1.5 text-sm font-medium text-green-600 transition-colors group-hover:bg-green-600 group-hover:text-white">
+            View Profile
+          </span>
         </div>
       </CardContent>
-    </Card>
+      </Card>
+    </Link>
   )
 }

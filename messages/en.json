@@ -6,24 +6,24 @@
     "dashboard": "My Dashboard",
     "profile": "My Profile",
     "logout": "Logout",
-    "logo": "ThekedaarPK"
+    "logo": "HomeImprovePK"
   },
   "landing": {
     "heroTitle": "Pakistan's First Verified Home Improvement Marketplace",
-    "heroSubtitle": "Connect with trusted, verified thekedaars for all your home improvement needs",
-    "heroCta": "Browse Thekedaars",
+    "heroSubtitle": "Connect with trusted, verified contractors for all your home improvement needs",
+    "heroCta": "Browse Contractors",
     "heroCtaSecondary": "Post a Job",
     "categoriesTitle": "Browse by Category",
     "howItWorksTitle": "How It Works",
     "step1Title": "Post Your Job",
     "step1Desc": "Describe your home improvement project, set your budget, and upload photos",
     "step2Title": "Get Quotes",
-    "step2Desc": "Verified thekedaars in your city will send you competitive quotes",
+    "step2Desc": "Verified contractors in your city will send you competitive quotes",
     "step3Title": "Hire & Get It Done",
     "step3Desc": "Choose the best quote, communicate via chat, and track your project",
-    "thekedaarCtaTitle": "Are You a Thekedaar?",
-    "thekedaarCtaDesc": "Join Pakistan's most trusted platform and grow your business with verified clients",
-    "thekedaarCtaButton": "Register as Thekedaar",
+    "contractorCtaTitle": "Are You a Contractor?",
+    "contractorCtaDesc": "Join Pakistan's most trusted platform and grow your business with verified clients",
+    "contractorCtaButton": "Register as Contractor",
     "categories": {
       "plumbing": "Plumbing",
       "electrical": "Electrical",
@@ -35,7 +35,7 @@
     }
   },
   "auth": {
-    "loginTitle": "Login to ThekedaarPK",
+    "loginTitle": "Login to HomeImprovePK",
     "loginSubtitle": "Enter your phone number to get started",
     "phoneLabel": "Phone Number",
     "phonePlaceholder": "3XX XXXXXXX",
@@ -56,13 +56,13 @@
     "roleTitle": "I am a...",
     "homeownerTitle": "Homeowner",
     "homeownerDesc": "I need home improvement services",
-    "thekedaarTitle": "Thekedaar",
-    "thekedaarDesc": "I provide home improvement services",
+    "contractorTitle": "Contractor",
+    "contractorDesc": "I provide home improvement services",
     "submit": "Get Started",
     "submitting": "Setting up..."
   },
   "browse": {
-    "title": "Find a Thekedaar",
+    "title": "Find a Contractor",
     "searchPlaceholder": "Search by name or service...",
     "filterCategory": "Category",
     "filterCity": "City",
@@ -70,13 +70,13 @@
     "allCategories": "All Categories",
     "allCities": "All Cities",
     "anyRating": "Any Rating",
-    "noResults": "No thekedaars found",
+    "noResults": "No contractors found",
     "noResultsDesc": "Try adjusting your filters",
     "showing": "Showing",
     "results": "results",
     "loadMore": "Load More"
   },
-  "thekedaarProfile": {
+  "contractorProfile": {
     "verified": "Verified",
     "pending": "Pending Verification",
     "rejected": "Not Verified",
@@ -106,7 +106,7 @@
     "areaLabel": "Area / Neighbourhood",
     "areaPlaceholder": "e.g. DHA Phase 5",
     "photosLabel": "Photos (up to 5)",
-    "photosHelp": "Add photos to help thekedaars understand the job",
+    "photosHelp": "Add photos to help contractors understand the job",
     "budgetMinLabel": "Minimum Budget (PKR)",
     "budgetMaxLabel": "Maximum Budget (PKR)",
     "budgetPlaceholder": "0",
@@ -119,7 +119,7 @@
   "dashboard": {
     "title": "My Jobs",
     "noJobs": "No jobs posted yet",
-    "noJobsDesc": "Post your first job to get quotes from verified thekedaars",
+    "noJobsDesc": "Post your first job to get quotes from verified contractors",
     "postJobCta": "Post a Job",
     "filterAll": "All",
     "filterOpen": "Open",
@@ -128,7 +128,7 @@
     "filterCancelled": "Cancelled",
     "quotesTitle": "Quotes Received",
     "noQuotes": "No quotes yet",
-    "noQuotesDesc": "Thekedaars will send quotes once they see your job",
+    "noQuotesDesc": "Contractors will send quotes once they see your job",
     "acceptQuote": "Accept Quote",
     "bookingTitle": "Booking",
     "goToChat": "Go to Chat",
@@ -139,7 +139,7 @@
     "reviewSubmitting": "Submitting...",
     "bookingStatus": "Booking Status"
   },
-  "thekedaarDashboard": {
+  "contractorDashboard": {
     "title": "Available Jobs",
     "myProfile": "My Profile",
     "sendQuote": "Send Quote",
@@ -173,7 +173,7 @@
   "admin": {
     "title": "Admin Dashboard",
     "totalUsers": "Total Users",
-    "totalThekedaars": "Total Thekedaars",
+    "totalContractors": "Total Contractors",
     "totalJobs": "Total Jobs",
     "completedJobs": "Completed Jobs",
     "revenue": "Total Revenue",
@@ -217,7 +217,7 @@
     }
   },
   "footer": {
-    "copyright": "© 2024 ThekedaarPK. All rights reserved.",
+    "copyright": "© 2024 HomeImprovePK. All rights reserved.",
     "tagline": "Pakistan's First Verified Home Improvement Marketplace"
   }
 }

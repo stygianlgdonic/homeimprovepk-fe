@@ -8,7 +8,7 @@ import toast from 'react-hot-toast'
 import { Badge, statusVariant } from '@/components/ui/Badge'
 import { Button } from '@/components/ui/Button'
 import { Card, CardContent, CardFooter } from '@/components/ui/Card'
-import { RatingStars } from '@/components/thekedaar/RatingStars'
+import { RatingStars } from '@/components/contractor/RatingStars'
 import { QuoteCard } from '@/components/job/QuoteCard'
 import { getJob, acceptQuote, updateJobStatus, createReview, getChatRooms } from '@/lib/api'
 import { useAuthStore } from '@/stores/auth.store'
@@ -180,8 +180,8 @@ export default function JobDetailPage({
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm text-gray-700">
-                    {isUr ? 'ٹھیکیدار:' : 'Thekedaar:'}{' '}
-                    <span className="font-medium">{job.booking.thekedaar.name}</span>
+                    {isUr ? 'ٹھیکیدار:' : 'Contractor:'}{' '}
+                    <span className="font-medium">{job.booking.contractor.name}</span>
                   </p>
                   <Badge variant={statusVariant(job.booking.status)} className="mt-1">
                     {job.booking.status.replace('_', ' ')}
@@ -242,7 +242,7 @@ export default function JobDetailPage({
                 {isUr ? 'ابھی تک کوئی قیمت نہیں' : 'No quotes yet'}
               </p>
               <p className="text-xs text-gray-400 mt-1">
-                {isUr ? 'ٹھیکیدار قیمتیں بھیجیں گے' : 'Thekedaars will send quotes soon'}
+                {isUr ? 'ٹھیکیدار قیمتیں بھیجیں گے' : 'Contractors will send quotes soon'}
               </p>
             </CardContent>
           </Card>

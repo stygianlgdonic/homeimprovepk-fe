@@ -10,7 +10,7 @@ import type { JobPost } from '@/types'
 interface JobCardProps {
   job: JobPost
   locale?: string
-  linkPrefix?: string // e.g. '/en/dashboard/jobs' or '/en/thekedaar/jobs'
+  linkPrefix?: string // e.g. '/en/dashboard/jobs' or '/en/contractor/jobs'
 }
 
 export function JobCard({ job, locale = 'en', linkPrefix }: JobCardProps) {
